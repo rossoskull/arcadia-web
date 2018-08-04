@@ -212,9 +212,12 @@
 				<div class="container">
 					<div class="card red darken-4">
 						<div class="card-content white-text">
-							<h3 class="head-h2 white-text">Registered Players</h3>
-							<hr>
-							<table class="centered highlight">
+							<h3 class="head-h2 white-text">
+								Registered Players
+								<button class="btn green waves-light waves-effect" @click="getPlayers()">Refresh</button>
+							</h3>
+							<!-- <hr> -->
+							<table class="centered highlight" v-show="!playersListWaiting">
 								<thead>
 									<tr>
 										<th>Name</th>
@@ -229,6 +232,19 @@
 								</tbody>
 							</table>
 						</div>
+					</div>
+					<div class="center">
+						<div class="preloader-wrapper lg active" v-show="playersListWaiting">
+						    <div class="spinner-layer spinner-green-only">
+						      <div class="circle-clipper left">
+						        <div class="circle"></div>
+						      </div><div class="gap-patch">
+						        <div class="circle"></div>
+						      </div><div class="circle-clipper right">
+						        <div class="circle"></div>
+						      </div>
+						    </div>
+						  </div>
 					</div>
 				</div>
 			</div>

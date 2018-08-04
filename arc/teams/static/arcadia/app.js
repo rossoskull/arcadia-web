@@ -76,6 +76,7 @@ var getTeams = function () {
 
 // Get the list of players
 var getPlayers = function () {
+	Main.playersListWaiting = true;
 	fetch("/teams/showusers/", {
 		mode: 'no-cors'
 	}).then(function(res) {
@@ -88,4 +89,5 @@ var getPlayers = function () {
 	}).catch(function(err) {
 		console.log(err);
 	});
+	Main.playersListWaiting = false;
 }
